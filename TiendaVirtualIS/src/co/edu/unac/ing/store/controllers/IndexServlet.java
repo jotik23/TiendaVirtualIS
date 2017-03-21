@@ -1,5 +1,8 @@
 package co.edu.unac.ing.store.controllers;
 
+import co.edu.unac.ing.store.models.ConnectionBD;
+
+import javax.servlet.RequestDispatcher;
 import java.io.IOException;
 
 /**
@@ -13,5 +16,15 @@ public class IndexServlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
+        //Recuperar valores
+        //Hacer la lógica
+        //Conectarnos a la BD
+        ConnectionBD connectionBD = new ConnectionBD();
+        connectionBD.connect("root", "", "store");
+        //Preparar datos
+        //Enviarlos al JSP
+
+        RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/admin.jsp");
+        RequetsDispatcherObj.forward(request, response);
     }
 }
