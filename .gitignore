@@ -6,7 +6,9 @@
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-TiendaVirtualIS/.idea/**/workspace.xml
+TiendaVirtualIS/.idea/*
+TiendaVirtualIS/out/*
+TiendaVirtualIS/TiendaVirtualIS.iml
 TiendaVirtualIS/.idea/**/tasks.xml
 TiendaVirtualIS/.idea/dictionaries
 
