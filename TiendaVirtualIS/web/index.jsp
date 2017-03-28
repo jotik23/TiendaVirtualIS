@@ -72,6 +72,9 @@
         <li>
           <a href="static/frontend/contact.html">Contact</a>
         </li>
+        <li>
+          <a href="/usuarios">LOGIN</a>
+        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
