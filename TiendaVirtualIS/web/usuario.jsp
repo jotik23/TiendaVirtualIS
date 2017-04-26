@@ -51,7 +51,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">SB Admin</a>
+            <a class="navbar-brand" href="/Home">Incio</a>
         </div>
         <!-- Top Menu Items -->
         <ul class="nav navbar-right top-nav">
@@ -158,16 +158,16 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav side-nav">
                 <li>
-                    <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    <a href="/Home"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    <a href="/RegistroProductos"><i class="fa fa-fw fa-bar-chart-o"></i> Registro de productos</a>
                 </li>
                 <li>
-                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+                    <a href="tables.html"><i class="fa fa-fw fa-table"></i> Gestión de pedidos</a>
                 </li>
                 <li class="active">
-                    <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                    <a href="/usuarios"><i class="fa fa-fw fa-edit"></i>Usuarios</a>
                 </li>
                 <li>
                     <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>

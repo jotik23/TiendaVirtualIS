@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Business Casual - Start Bootstrap Theme</title>
+  <title>Tienda zapatos</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="static/frontend/css/bootstrap.min.css" rel="stylesheet">
@@ -40,7 +40,7 @@
 
 <body>
 
-<div class="brand">Business Casual</div>
+<div class="brand">Tienda de Zapatos</div>
 <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
 <!-- Navigation -->
@@ -61,19 +61,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          <a href="static/frontend/index.html">Home</a>
+          <a href="static/frontend/index.html">Inicio</a>
         </li>
         <li>
-          <a href="static/frontend/about.html">About</a>
+          <a href="static/frontend/about.html">Acerca de</a>
         </li>
         <li>
-          <a href="static/frontend/blog.html">Blog</a>
+          <a href="static/frontend/blog.html">Nosotros</a>
         </li>
         <li>
           <a href="static/frontend/contact.html">Contact</a>
         </li>
         <li>
-          <a href="/usuarios">LOGIN</a>
+          <a href="/usuarios">Registro</a>
         </li>
       </ul>
     </div>
@@ -119,7 +119,7 @@
         <h2 class="brand-before">
           <small>Welcome to</small>
         </h2>
-        <h1 class="brand-name">Business Casual</h1>
+        <h1 class="brand-name">Antonio</h1>
         <hr class="tagline-divider">
         <h2>
           <small>By

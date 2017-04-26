@@ -18,6 +18,7 @@ public class ConnectionBD {
 
     public void connect(String user, String pass, String dbName) {
         Driver driver;
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, user, pass);
@@ -52,8 +53,8 @@ public class ConnectionBD {
     public void createTable(String name) {
         try {
             String Query = "CREATE TABLE " + name + ""
-                    + "(ID VARCHAR(25),Nombre VARCHAR(50), Apellido VARCHAR(50),"
-                    + " Edad VARCHAR(3), Sexo VARCHAR(1))";
+                    + "(código INT (10),nombre VARCHAR(50),Categoria VARCHAR(15),"
+                    + " tipo VARCHAR(20),precio float, talla tinyint(3), Cantidad disponible smallint )";
             Statement st = connection.createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
@@ -61,17 +62,23 @@ public class ConnectionBD {
         }
     }
 
-    public void insertData(String table_name, String ID, String name, String lastname, String age, String gender) {
+    public void insertData(String table_name, String codigo, String nombre, String categoria, String tipo, String precio,String talla, String cantidad, String color, String tiempoDisponible,String imagen) {
         try {
             String Query = "INSERT INTO " + table_name + " VALUES("
-                    + "\"" + ID + "\", "
-                    + "\"" + name + "\", "
-                    + "\"" + lastname + "\", "
-                    + "\"" + age + "\", "
-                    + "\"" + gender + "\")";
+                    + codigo + ", "
+                    + "\"" + nombre + "\", "
+                    + "\"" + categoria + "\", "
+                    + "\"" + tipo + "\", "
+                    + "\"" + precio + "\", "
+                    + "\"" + talla + "\", "
+                    + "\"" + cantidad + "\", "
+                    + "\"" + color + "\", "
+                    + "\"" + tiempoDisponible + "\", "
+                    + "\"" + imagen + "\" )";
             Statement st = connection.createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -106,3 +113,22 @@ public class ConnectionBD {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
