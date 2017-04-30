@@ -82,6 +82,22 @@ public class ConnectionBD {
         }
     }
 
+    public void insertUsuario(String table_name,String nombre_completo, String cedula, String telefono, String email, String direccion, String contra) {
+        try {
+            String Query = "INSERT INTO " + table_name + " VALUES("
+                    + nombre_completo + ", "
+                    + "\"" + cedula + "\", "
+                    + "\"" + telefono + "\", "
+                    + "\"" + email + "\", "
+                    + "\"" + direccion + "\", "
+                    + "\"" + contra + "\" )";
+            Statement st = connection.createStatement();
+            st.executeUpdate(Query);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public void getValues(String table_name) {
         try {
             String Query = "SELECT * FROM " + table_name;
