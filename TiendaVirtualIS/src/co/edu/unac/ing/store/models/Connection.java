@@ -1,8 +1,9 @@
 package co.edu.unac.ing.store.models;
 
+import co.edu.unac.ing.store.dto.Product;
+import co.edu.unac.ing.store.dto.User;
 import com.mysql.jdbc.Driver;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.logging.Logger;
 import java.sql.SQLException;
@@ -12,21 +13,26 @@ import java.util.logging.Level;
 /**
  * Created by lds on 21/03/2017.
  */
-public class ConnectionBD {
+public class Connection {
 
-    private static Connection connection;
+    private static final String TABLE_PRODUCT_NAME = "productos";
+    private static final String DATABASE_USER = "root";
+    private static final String DATABASE_PASSWORD = "";
+    private static final String DATABASE_NAME = "store";
 
-    public void connect(String user, String pass, String dbName) {
+    private static java.sql.Connection connection;
+
+    public void connect() {
         Driver driver;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dbName, user, pass);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD);
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -35,7 +41,7 @@ public class ConnectionBD {
             connection.close();
             System.out.println("Se ha finalizado la conexión con el servidor");
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -44,9 +50,9 @@ public class ConnectionBD {
             String Query = "CREATE DATABASE " + name;
             Statement st = connection.createStatement();
             st.executeUpdate(Query);
-            connect("root", "", name);
+            connect();
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -58,28 +64,42 @@ public class ConnectionBD {
             Statement st = connection.createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionBD.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void insertData(String table_name, String codigo, String nombre, String categoria, String tipo, String precio,String talla, String cantidad, String color, String tiempoDisponible,String imagen) {
+    public void insert(Product product){
         try {
-            String Query = "INSERT INTO " + table_name + " VALUES("
-                    + codigo + ", "
-                    + "\"" + nombre + "\", "
-                    + "\"" + categoria + "\", "
-                    + "\"" + tipo + "\", "
-                    + "\"" + precio + "\", "
-                    + "\"" + talla + "\", "
-                    + "\"" + cantidad + "\", "
-                    + "\"" + color + "\", "
-                    + "\"" + tiempoDisponible + "\", "
-                    + "\"" + imagen + "\" )";
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO ");
+            query.append(Connection.TABLE_PRODUCT_NAME);
+            query.append(" VALUES(");
+            query.append("\"").append(product.getCode()).append("\",");
+            query.append("\"").append(product.getName()).append("\",");
+            query.append("\"").append(product.getCategory()).append("\",");
+            query.append(product.getPrice()).append(",");
+            query.append(product.getSize()).append(",");
+            query.append(product.getQuantity()).append(",");
+            query.append("\"").append(product.getColor()).append("\",");
+            query.append("\"").append(product.getTime()).append("\",");
+            query.append("\"").append(product.getImage()).append(")");
+
+            connect();
             Statement st = connection.createStatement();
-            st.executeUpdate(Query);
+            st.executeUpdate(query.toString());
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+
+
+    public void insert(User user){
+
+    }
+
+    public void insertData(String table_name, String codigo, String nombre, String categoria, String tipo, String precio,String talla, String cantidad, String color, String tiempoDisponible,String imagen) {
+
     }
 
     public void getValues(String table_name) {

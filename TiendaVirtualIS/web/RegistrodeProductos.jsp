@@ -233,7 +233,7 @@
 
                         <div class="form-group">
                             <label>Código del producto</label>
-                            <input name="codigo" class="form-control" placeholder="Ingrese el texto" required/>
+                            <input name="codigo" class="form-control" placeholder="Ingrese el Código" required/>
                         </div>
 
                         <div class="form-group">
@@ -250,12 +250,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label>Seleccione el estilo</label>
+                            <label>Seleccione el tipo</label>
                             <select name="tipo" class="form-control" required/>
                                  <option value="Tenis">Tenis</option>
                                  <option value="Botas">Botas</option>
                                  <option value="Sandalias">Sandalias</option>
-
                                  <option value="Oxford-Casual">Oxford-Casual</option>
                                  <option value="Baletas">Baletas</option>
                                  <option value="Zapatillas">Zapatillas</option>
@@ -285,14 +284,14 @@
                         </div>
                         <div class="form-group">
                             <label>Periodo disponible</label>
-                            <input type="date" name="tiempoDisponible" class="form-control" placeholder="Ingrese el texto" required/>
+                            <input type="date" name="tiempoDisponible" class="form-control" placeholder="Seleccione la fecha" required/>
                         </div>
 
                         <div class="form-group">
                             <label>Imagen del producto</label>
                             <input type="file" name="imagen" required/>
                         </div>
-                        <button type="submit" class="btn btn-default">Guardar</button>
+                        <input type="submit" class="btn btn-default"/>
                     </form>
                 </div>
             </div>
@@ -307,4 +306,5 @@
 </body>
 
 </html>
+
 
