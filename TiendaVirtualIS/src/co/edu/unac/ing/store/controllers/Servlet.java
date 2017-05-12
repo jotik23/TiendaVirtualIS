@@ -1,6 +1,5 @@
 package co.edu.unac.ing.store.controllers;
 
-
 import co.edu.unac.ing.store.models.Connection;
 
 import javax.servlet.RequestDispatcher;
