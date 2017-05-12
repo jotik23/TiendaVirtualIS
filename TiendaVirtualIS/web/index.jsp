@@ -67,7 +67,7 @@
           <a href="static/frontend/about.html">Acerca de</a>
         </li>
         <li>
-          <a href="static/frontend/blog.html">Nosotros</a>
+          <a href="/Nosotros">Nosotros</a>
         </li>
         <li>
           <a href="static/frontend/contact.html">Contact</a>
