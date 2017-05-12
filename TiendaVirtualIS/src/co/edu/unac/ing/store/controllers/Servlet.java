@@ -1,6 +1,7 @@
 package co.edu.unac.ing.store.controllers;
 
-import co.edu.unac.ing.store.models.ConnectionBD;
+
+import co.edu.unac.ing.store.models.Connection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -24,8 +25,8 @@ public class Servlet extends HttpServlet {
         String direccion =  request.getParameter(("direccion"));
         String contra =  request.getParameter("contra");
 
-        ConnectionBD connectionBD = new ConnectionBD();
-        connectionBD.connect("root", "", "store");
+        Connection connectionBD = new Connection();
+        //connectionBD.connect("root", "", "store");
 
         connectionBD.insertUsuario("user", nombre_completo,cedula,telefono,email, direccion,contra);
     }
@@ -33,8 +34,8 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
-        ConnectionBD connectionBD = new ConnectionBD();
-        connectionBD.connect("root", "", "store");
+        Connection connectionBD = new Connection();
+        //connectionBD.connect("root", "", "store");
 
         RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/usuario.jsp");
         RequetsDispatcherObj.forward(request, response);

@@ -36,6 +36,55 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+    /****** LOGIN MODAL ******/
+    .loginmodal-container {
+      padding: 30px;
+      max-width: 350px;
+      width: 100% !important;
+      background-color: #F7F7F7;
+      margin: 0 auto;
+      border-radius: 2px;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      font-family: roboto;
+    }
+
+    .loginmodal-container h1 {
+      text-align: center;
+      font-size: 1.8em;
+      font-family: roboto;
+    }
+
+    .loginmodal-container input[type=submit] {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .loginmodal-container input[type=text], input[type=password] {
+      height: 44px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 10px;
+      -webkit-appearance: none;
+      background: #fff;
+      border: 1px solid #d9d9d9;
+      border-top: 1px solid #c0c0c0;
+      /* border-radius: 2px; */
+      padding: 0 8px;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+    }
+
+    .loginmodal-container input[type=text]:hover, input[type=password]:hover {
+      border: 1px solid #b9b9b9;
+      border-top: 1px solid #a0a0a0;
+  </style>
+
 </head>
 
 <body>
@@ -168,7 +217,10 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <p>Copyright &copy; Your Website 2014</p>
+        <p style="
+    padding: 0px;
+        ">Copyright © Your Website 2014</p>
+        <a href="#" data-toggle="modal" data-target="#login-modal">Administrador</a>
       </div>
     </div>
   </div>
@@ -189,4 +241,20 @@
 
 </body>
 
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Inicie Sesión</h1><br>
+      <form action="admin.jsp">
+        <input type="text" name="user" placeholder="Usuario">
+        <input type="password" name="pass" placeholder="Contraseña">
+        <input type="submit" name="login" class="login loginmodal-submit" value="Iniciar Sesión">
+      </form>
+
+      <div class="login-help">
+        <a href="#">Registrar</a> - <a href="#">¿Olvidó su contraseña?</a>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

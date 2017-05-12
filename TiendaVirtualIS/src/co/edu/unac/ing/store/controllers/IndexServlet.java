@@ -20,7 +20,7 @@ public class IndexServlet extends javax.servlet.http.HttpServlet {
         //Hacer la lógica
         //Conectarnos a la BD
         Connection connection = new Connection();
-        connection.connect("root", "", "store");
+        //connection.connect("root", "", "store");
         //Preparar datos
         //Enviarlos al JSP
 
