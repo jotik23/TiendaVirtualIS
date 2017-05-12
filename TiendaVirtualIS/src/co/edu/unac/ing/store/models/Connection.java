@@ -113,21 +113,21 @@ public class Connection {
         }
     }
 
-    public void getValues(String table_name) {
-        try {
-            String Query = "SELECT * FROM " + table_name;
-            Statement st = connection.createStatement();
-            java.sql.ResultSet resultSet;
-            resultSet = st.executeQuery(Query);
+               public void getValues(String table_name) {
+                try {
+                    String Query = "SELECT * FROM " + table_name;
+                    Statement st = connection.createStatement();
+                    java.sql.ResultSet resultSet;
+                    resultSet = st.executeQuery(Query);
 
-            while (resultSet.next()) {
-                System.out.println("ID: " + resultSet.getString("ID") + " "
-                        + "Nombre: " + resultSet.getString("Nombre") + " " + resultSet.getString("Apellido") + " "
-                        + "Edad: " + resultSet.getString("Edad") + " "
-                        + "Sexo: " + resultSet.getString("Sexo"));
-            }
+                    while (resultSet.next()) {
+                        System.out.println("ID: " + resultSet.getString("ID") + " "
+                                + "Nombre: " + resultSet.getString("Nombre") + " " + resultSet.getString("Apellido") + " "
+                                + "Edad: " + resultSet.getString("Edad") + " "
+                                + "Sexo: " + resultSet.getString("Sexo"));
+                    }
 
-        } catch (SQLException ex) {
+                } catch (SQLException ex) {
 
         }
     }

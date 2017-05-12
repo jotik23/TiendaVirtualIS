@@ -75,6 +75,12 @@
         <li>
           <a href="/usuarios">Registro</a>
         </li>
+        <li>
+          <a href="/ConsultaBD">Catalogo Hombres</a>
+        </li>
+        <li>
+          <a href="/usuarios">Catalogo Mujeres</a>
+        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
