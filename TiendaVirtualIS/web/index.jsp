@@ -125,7 +125,7 @@
           <a href="/usuarios">Registro</a>
         </li>
         <li>
-          <a href="/inicio">Catalogo Hombres</a>
+          <a href="/ConsultaBD">Catalogo Hombres</a>
         </li>
         <li>
           <a href="/usuarios">Catalogo Mujeres</a>
