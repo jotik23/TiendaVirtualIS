@@ -22,12 +22,20 @@ public class Connection {
 
     private static java.sql.Connection connection;
 
+    public static java.sql.Connection getConnection() {
+        return connection;
+    }
+
+    public static void setConnection(java.sql.Connection connection) {
+        Connection.connection = connection;
+    }
+
     public void connect() {
         Driver driver;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD);
+            setConnection(DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD));
             System.out.println("Se ha iniciado la conexión con el servidor de forma exitosa");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
@@ -38,7 +46,7 @@ public class Connection {
 
     public void closeConnection() {
         try {
-            connection.close();
+            getConnection().close();
             System.out.println("Se ha finalizado la conexión con el servidor");
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
@@ -48,7 +56,7 @@ public class Connection {
     public void createDB(String name) {
         try {
             String Query = "CREATE DATABASE " + name;
-            Statement st = connection.createStatement();
+            Statement st = getConnection().createStatement();
             st.executeUpdate(Query);
             connect();
         } catch (SQLException ex) {
@@ -61,7 +69,7 @@ public class Connection {
             String Query = "CREATE TABLE " + name + ""
                     + "(código INT (10),nombre VARCHAR(50),Categoria VARCHAR(15),"
                     + " tipo VARCHAR(20),precio float, talla tinyint(3), Cantidad disponible smallint )";
-            Statement st = connection.createStatement();
+            Statement st = getConnection().createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,7 +94,7 @@ public class Connection {
             query.append("\"").append(product.getImage()).append(")");
 
             connect();
-            Statement st = connection.createStatement();
+            Statement st = getConnection().createStatement();
             st.executeUpdate(query.toString());
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -106,17 +114,17 @@ public class Connection {
                     + "\"" + email + "\", "
                     + "\"" + direccion + "\", "
                     + "\"" + contra + "\" )";
-            Statement st = connection.createStatement();
+            Statement st = getConnection().createStatement();
             st.executeUpdate(Query);
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
 
-               public void getValues(String table_name) {
+    public void getValues(String table_name) {
                 try {
                     String Query = "SELECT * FROM " + table_name;
-                    Statement st = connection.createStatement();
+                    Statement st = getConnection().createStatement();
                     java.sql.ResultSet resultSet;
                     resultSet = st.executeQuery(Query);
 
@@ -135,7 +143,7 @@ public class Connection {
     public void deleteRecord(String table_name, String ID) {
         try {
             String Query = "DELETE FROM " + table_name + " WHERE ID = \"" + ID + "\"";
-            Statement st = connection.createStatement();
+            Statement st = getConnection().createStatement();
             st.executeUpdate(Query);
 
         } catch (SQLException ex) {
