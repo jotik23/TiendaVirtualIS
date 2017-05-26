@@ -1,4 +1,4 @@
-<%--
+<!-- <%--
   Created by IntelliJ IDEA.
   User: lds
   Date: 16/03/2017
@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+ --><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,10 +17,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tienda zapatos</title>
+  <title>Andrea's shoes</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="static/frontend/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/frontend/css/bootstrap.css" rel="stylesheet">
 
   <!-- Custom CSS -->
   <link href="static/frontend/css/business-casual.css" rel="stylesheet">
@@ -36,61 +36,14 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <style>
-    @import url(http://fonts.googleapis.com/css?family=Roboto);
-
-    /****** LOGIN MODAL ******/
-    .loginmodal-container {
-      padding: 30px;
-      max-width: 350px;
-      width: 100% !important;
-      background-color: #F7F7F7;
-      margin: 0 auto;
-      border-radius: 2px;
-      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      font-family: roboto;
-    }
-
-    .loginmodal-container h1 {
-      text-align: center;
-      font-size: 1.8em;
-      font-family: roboto;
-    }
-
-    .loginmodal-container input[type=submit] {
-      width: 100%;
-      display: block;
-      margin-bottom: 10px;
-      position: relative;
-    }
-
-    .loginmodal-container input[type=text], input[type=password] {
-      height: 44px;
-      font-size: 16px;
-      width: 100%;
-      margin-bottom: 10px;
-      -webkit-appearance: none;
-      background: #fff;
-      border: 1px solid #d9d9d9;
-      border-top: 1px solid #c0c0c0;
-      /* border-radius: 2px; */
-      padding: 0 8px;
-      box-sizing: border-box;
-      -moz-box-sizing: border-box;
-    }
-
-    .loginmodal-container input[type=text]:hover, input[type=password]:hover {
-      border: 1px solid #b9b9b9;
-      border-top: 1px solid #a0a0a0;
-  </style>
 
 </head>
 
 <body>
 
-<div class="brand">Tienda de Zapatos</div>
-<div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
+<div class="brand">Andrea's shoes</div>
+<div class="address-bar">CRA 84# 33AA-1 La castellana | Medellin,Antioquia 90210 | 123.456.7890</div>
+
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -108,27 +61,19 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <ul class="nav navbar-nav">
         <li>
-          <a href="static/frontend/index.html">Inicio</a>
+          <a href="static/frontend/index.html" target="_blank">Inicio</a>
         </li>
         <li>
-          <a href="static/frontend/about.html">Acerca de</a>
+          <a href="/usuarios" target="_blank">Registro</a>
         </li>
         <li>
-          <a href="/Nosotros">Nosotros</a>
+          <a href="/inicio" target="_blank">Catalogo Hombres</a>
         </li>
         <li>
-          <a href="static/frontend/contact.html">Contact</a>
-        </li>
-        <li>
-          <a href="/usuarios">Registro</a>
-        </li>
-        <li>
-          <a href="/inicio">Catalogo Hombres</a>
-        </li>
-        <li>
-          <a href="/usuarios">Catalogo Mujeres</a>
+          <a href="/usuarios" target="_blank">Catalogo Mujeres</a>
         </li>
       </ul>
     </div>
@@ -138,6 +83,14 @@
 </nav>
 
 <div class="container">
+
+<div class="row">
+                <div class="box">
+                  
+                   <img id="relax-banner" src="static/frontend/img/relax_banner.jpg">
+                 
+                </div>
+              </div>
 
   <div class="row">
     <div class="box">
@@ -172,14 +125,12 @@
           </a>
         </div>
         <h2 class="brand-before">
-          <small>Welcome to</small>
+          <small>Bienvenido a</small>
         </h2>
-        <h1 class="brand-name">Antonio</h1>
+        <h1 class="brand-name">Andrea's shoes</h1>
         <hr class="tagline-divider">
         <h2>
-          <small>By
-            <strong>Start Bootstrap</strong>
-          </small>
+            <strong>Todo conforme a tu preferencia</strong>
         </h2>
       </div>
     </div>
@@ -189,15 +140,27 @@
     <div class="box">
       <div class="col-lg-12">
         <hr>
-        <h2 class="intro-text text-center">Build a website
-          <strong>worth visiting</strong>
+        <h2 class="intro-text text-center">Nuestros
+          <strong>productos</strong>
         </h2>
         <hr>
         <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
         <hr class="visible-xs">
-        <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
-        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        </a>
+        <a href="static/frontend/img/intro-pic.jpg">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        </a>
+        <a href="static/frontend/img/intro-pic.jpg">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        </a>
+        <a href="static/frontend/img/intro-pic.jpg">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        </a>
+         <a href="static/frontend/img/intro-pic.jpg">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        </a>
+
+       
       </div>
     </div>
   </div>
@@ -206,12 +169,12 @@
     <div class="box">
       <div class="col-lg-12">
         <hr>
-        <h2 class="intro-text text-center">Beautiful boxes
-          <strong>to showcase your content</strong>
+        <h2 class="intro-text text-center">Que es Andrea's shoes </strong>
         </h2>
         <hr>
-        <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <p>Somos una tienda de zapatos online con las últimas tendencias de la temporada.
+          En Andrea's shoes encontrarás gran variedad de zapatos de las mejores marcas. Nuestro stock es limitado y
+          los precios están sujetos a cambios sin previo aviso.  <a href="/Nosotros"> ver más</a></p>
       </div>
     </div>
   </div>
@@ -221,15 +184,17 @@
 
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <p style="
-    padding: 0px;
-        ">Copyright © Your Website 2014</p>
-        <a href="#" data-toggle="modal" data-target="#login-modal">Administrador</a>
+    <div class="row" >
+      <div class="col-lg-20 text-center"> 
+        <h5> Copyright 2017- Ingenieria de software</h5>
+        <ul id="list-footer"> 
+        <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a>
+        <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
+        <li> <a href="infoEmpresa.html" target="_blank" title="contacto">Contáctenos</a> </li>
       </div>
     </div>
   </div>
+
 </footer>
 
 <!-- jQuery -->

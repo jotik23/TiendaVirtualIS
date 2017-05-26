@@ -198,9 +198,10 @@ th {
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
   }
+
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   a[href]:after {
     content: " (" attr(href) ")";
@@ -260,6 +261,25 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+
+#list-footer{
+  list-style-type:none;
+
+}
+
+
+#list-footer li{
+  float: left;
+  text-align: center;
+  margin-right: 20px;
+}
+
+#list-footer a{
+      color: black;
+}
+
+
+
 @font-face {
   font-family: 'Glyphicons Halflings';
 
@@ -3529,7 +3549,7 @@ tbody.collapse.in {
   margin: 2px 0 0;
   font-size: 14px;
   text-align: left;
-  list-style: none;
+  t-style: none;
   background-color: #fff;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
