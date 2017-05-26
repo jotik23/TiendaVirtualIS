@@ -97,8 +97,7 @@ public class Connection {
             query.append(product.getQuantity()).append(",");
             query.append("\"").append(product.getColor()).append("\",");
             query.append("\"").append(product.getTime()).append("\",");
-            query.append("\"").append(product.getImage()).append(")");
-
+            query.append("\"").append(product.getImage()).append("\",");
             connect();
             Statement st = getConnection().createStatement();
             st.executeUpdate(query.toString());
