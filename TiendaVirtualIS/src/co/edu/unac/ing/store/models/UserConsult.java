@@ -27,10 +27,11 @@ public class UserConsult extends Connection{
 
             while (resultSet.next()){
                 User user = new User();
+                user.setName(resultSet.getString("nombre"));
                 user.setEMail(resultSet.getString("correo"));
                 user.setPassword(resultSet.getString("password"));
-                user.setName(resultSet.getString("nombre"));
                 users.add(user);
+                System.out.println(user.getName()+" "+user.getEMail());
             }
 
         }catch(SQLException ex){

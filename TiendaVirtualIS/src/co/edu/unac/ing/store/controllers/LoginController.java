@@ -5,6 +5,7 @@ import co.edu.unac.ing.store.logic.UserFacade;
 import co.edu.unac.ing.store.models.Connection;
 import co.edu.unac.ing.store.utilities.Mapper;
 import com.sun.net.httpserver.HttpsServer;
+import com.sun.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,16 +24,13 @@ public class LoginController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = Mapper.mappngRequestToLoginUser(request);
+        User user = Mapper.mappíngRequestToLoginUser(request);
         UserFacade us = new UserFacade();
 
         if (us.validateLogin(user)){
-            //response.sendRedirect("/index.jsp");
-            request.setAttribute("userName",user.getName().toString());
-            //response.sendRedirect("/index.jsp");
-            //response.addHeader("userName",user.getName());
-          RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/index.jsp");
-             RequetsDispatcherObj.forward(request, response);
+            request.setAttribute("userName",us.validateLoginName(user));
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
+
         }
         else{
             response.sendRedirect("/algo.jsp");
@@ -44,6 +42,4 @@ public class LoginController extends HttpServlet {
         RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/Login.jsp");
         RequetsDispatcherObj.forward(request, response);
     }
-
-
 }

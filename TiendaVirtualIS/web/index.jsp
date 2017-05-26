@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="co.edu.unac.ing.store.controllers.LoginController" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +18,21 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tienda zapatos</title>
+  <title>Tienda de zapatos</title>
 
   <!-- Bootstrap Core CSS -->
   <link href="static/frontend/css/bootstrap.min.css" rel="stylesheet">
 
+  <link href="static/backend/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="static/backend/css/sb-admin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="static/backend/css/plugins/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="static/backend/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom CSS -->
   <link href="static/frontend/css/business-casual.css" rel="stylesheet">
 
@@ -83,12 +94,52 @@
     .loginmodal-container input[type=text]:hover, input[type=password]:hover {
       border: 1px solid #b9b9b9;
       border-top: 1px solid #a0a0a0;
+    }
+
+    .secionOn{
+      color: #ffffff;
+    }
   </style>
 
 </head>
 
 <body>
+<header>
 
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Top Menu Items -->
+    <%
+      String user = (String) request.getAttribute("userName");
+      String profile = "";
+      String logIO = "Log In";
+      String refLog = "/login";
+      String clase ="" ;
+      if (user != (null)){
+        profile = "profile"; logIO = "Log Out";
+        refLog = "/index.jsp"; clase = "fa fa-fw fa-user";
+      }else{user = "Ingresar";}
+    %>
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown">
+        <i href="#"   class="dropdown-toggle" data-toggle="dropdown" >
+          <i class="fa fa-user"   >
+            <%=user%>
+        </i> <b class="caret"></b>
+        </i>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#"><i class="<%=clase%>"></i><%=profile%></a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="<%=refLog%>"><i class="fa fa-fw fa-power-off"></i> <%=logIO%> </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+</header>
 <div class="brand">Tienda de Zapatos</div>
 <div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
@@ -263,4 +314,22 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="login-modal-log" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Inicie Sesión</h1><br>
+      <form role="form"  action="/login" method="post" >
+        <input type="text" name="user" placeholder="Usuario">
+        <input type="password" name="pass" placeholder="Contraseña">
+        <input type="submit" class="login loginmodal-submit" value="Iniciar Sesión">
+      </form>
+
+      <div class="login-help">
+        <a href="/usuarios">Registrar</a> - <a href="">¿Olvidó su contraseña?</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>

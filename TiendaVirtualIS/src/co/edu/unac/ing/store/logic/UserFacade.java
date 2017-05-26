@@ -3,6 +3,7 @@ package co.edu.unac.ing.store.logic;
 import co.edu.unac.ing.store.dto.User;
 import co.edu.unac.ing.store.models.UserConsult;
 
+import javax.xml.transform.sax.SAXSource;
 import java.util.ArrayList;
 
 /**
@@ -11,20 +12,38 @@ import java.util.ArrayList;
 public class UserFacade {
 
     public boolean validateLogin(User user){
-
+        ArrayList<User> users = UserConsult.consultUser();
         boolean validation = false;
 
         if (!user.getEMail().equals(null) && !user.getEMail().equals("") &&
                 !user.getPassword().equals(null) && !user.getPassword().equals("")){
 
-            ArrayList<User> users = UserConsult.consultUser();
             for (int i=0; i<users.size();i++){
                 if (user.getPassword().equals(users.get(i).getPassword()) && user.getEMail().equals(users.get(i).getEMail())){
+
                     return  true;
                 }
             }
         }
 
+        return validation;
+    }
+
+    public String validateLoginName(User user){
+        ArrayList<User> users = UserConsult.consultUser();
+        String validation ="";
+
+        if (!user.getEMail().equals(null) && !user.getEMail().equals("") &&
+                !user.getPassword().equals(null) && !user.getPassword().equals("")){
+
+            for (int i=0; i<users.size();i++){
+                if (user.getPassword().equals(users.get(i).getPassword()) && user.getEMail().equals(users.get(i).getEMail())){
+
+                    validation = users.get(i).getName();
+                }
+            }
+        }
+        System.out.println(validation);
         return validation;
     }
 
@@ -44,5 +63,4 @@ public class UserFacade {
 
         return validation;
     }
-
 }

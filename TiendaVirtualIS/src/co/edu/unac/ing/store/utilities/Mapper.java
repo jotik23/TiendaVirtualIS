@@ -8,7 +8,7 @@ import co.edu.unac.ing.store.dto.User;
  */
 public class Mapper {
 
-    public  static User mappngRequestToLoginUser(javax.servlet.http.HttpServletRequest request){
+    public  static User mappíngRequestToLoginUser(javax.servlet.http.HttpServletRequest request){
         User user = new User();
 
         try{
