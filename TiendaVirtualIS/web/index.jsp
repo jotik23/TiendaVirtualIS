@@ -1,4 +1,4 @@
-<!-- <%--
+ <%--
   Created by IntelliJ IDEA.
   User: lds
   Date: 16/03/2017
@@ -191,6 +191,7 @@
         <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a>
         <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
         <li> <a href="infoEmpresa.html" target="_blank" title="contacto">Contáctenos</a> </li>
+        </ul>
       </div>
     </div>
   </div>

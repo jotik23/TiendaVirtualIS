@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-05-2017 a las 17:33:19
+-- Tiempo de generación: 26-05-2017 a las 18:16:31
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -31,13 +31,13 @@ CREATE TABLE `producto` (
   `nombre` varchar(50) NOT NULL,
   `categoria` varchar(15) NOT NULL,
   `tipo` varchar(20) NOT NULL,
-  `precio` float NOT NULL,
+  `precio` double NOT NULL,
   `talla` int(3) NOT NULL,
   `cantidad _disponible` int(6) NOT NULL,
   `color` varchar(30) NOT NULL,
   `tiempo_disponible` date NOT NULL,
   `imagen` text NOT NULL,
-  `categoria_id` int(11) NOT NULL
+  `categoria_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --

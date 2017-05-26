@@ -15,7 +15,7 @@ import java.util.logging.Level;
  */
 public class Connection {
 
-    private static final String TABLE_PRODUCT_NAME = "productos";
+    private static final String TABLE_PRODUCT_NAME = "producto";
     private static final String DATABASE_USER = "root";
     private static final String DATABASE_PASSWORD = "";
     private static final String DATABASE_NAME = "store";
@@ -86,15 +86,17 @@ public class Connection {
             query.append("\"").append(product.getCode()).append("\",");
             query.append("\"").append(product.getName()).append("\",");
             query.append("\"").append(product.getCategory()).append("\",");
+            query.append("\"").append(product.getType()).append("\",");
             query.append(product.getPrice()).append(",");
             query.append(product.getSize()).append(",");
             query.append(product.getQuantity()).append(",");
             query.append("\"").append(product.getColor()).append("\",");
             query.append("\"").append(product.getTime()).append("\",");
-            query.append("\"").append(product.getImage()).append("\",");
+            query.append("\"").append(product.getImage()).append("\")");
             connect();
-            Statement st = getConnection().createStatement();
-            st.executeUpdate(query.toString());
+            try (Statement st = getConnection().createStatement()) {
+                st.executeUpdate(query.toString());
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
