@@ -31,7 +31,7 @@ public class UserFacade {
 
     public String validateLoginName(User user){
         ArrayList<User> users = UserConsult.consultUser();
-        String validation ="";
+        String nameUser ="";
 
         if (!user.getEMail().equals(null) && !user.getEMail().equals("") &&
                 !user.getPassword().equals(null) && !user.getPassword().equals("")){
@@ -39,12 +39,11 @@ public class UserFacade {
             for (int i=0; i<users.size();i++){
                 if (user.getPassword().equals(users.get(i).getPassword()) && user.getEMail().equals(users.get(i).getEMail())){
 
-                    validation = users.get(i).getName();
+                    nameUser = users.get(i).getName();
                 }
             }
         }
-        System.out.println(validation);
-        return validation;
+        return nameUser;
     }
 
     public boolean validate(User user){
