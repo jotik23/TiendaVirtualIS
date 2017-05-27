@@ -92,15 +92,17 @@ public class Connection {
             query.append("\"").append(product.getCode()).append("\",");
             query.append("\"").append(product.getName()).append("\",");
             query.append("\"").append(product.getCategory()).append("\",");
+            query.append("\"").append(product.getType()).append("\",");
             query.append(product.getPrice()).append(",");
             query.append(product.getSize()).append(",");
             query.append(product.getQuantity()).append(",");
             query.append("\"").append(product.getColor()).append("\",");
             query.append("\"").append(product.getTime()).append("\",");
-            query.append("\"").append(product.getImage()).append("\",");
+            query.append("\"").append(product.getImage()).append("\")");
             connect();
             Statement st = getConnection().createStatement();
             st.executeUpdate(query.toString());
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -143,30 +145,6 @@ public class Connection {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
-
-    public ArrayList<User> getValues(){
-        ArrayList<User> users = new ArrayList<>();
-
-        try{
-            String Query = "SELECT * FROM "+ TABLE_USER_NAME;
-            Statement st = getConnection().createStatement();
-            java.sql.ResultSet resultSet;
-            resultSet = st.executeQuery(Query);
-
-            while (resultSet.next()){
-
-                User user = new User();
-                user.setName(resultSet.getString("correo"));
-                user.setId(resultSet.getString("password"));
-                users.add(user);
-            }
-
-        }catch(Exception ex){
-
-        }
-
-        return users;
     }
 
     public void getValues(String table_name) {

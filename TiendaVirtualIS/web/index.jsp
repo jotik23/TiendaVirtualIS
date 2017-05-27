@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: lds
-  Date: 16/03/2017
-  Time: 5:03 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="co.edu.unac.ing.store.controllers.LoginController" %>
 <!DOCTYPE html>
@@ -272,12 +265,14 @@
 
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <p style="
-    padding: 0px;
-        ">Copyright © Your Website 2014</p>
-        <a href="#" data-toggle="modal" data-target="#login-modal">Administrador</a>
+    <div class="row" >
+      <div class="col-lg-20 text-center"> 
+        <h5> Copyright 2017- Ingenieria de software</h5>
+        <ul id="list-footer"> 
+          <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a></li>
+        <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
+        <li> <a href="infoEmpresa.html" target="_blank" title="contacto">Contáctenos</a> </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -295,8 +290,6 @@
         interval: 5000 //changes the speed
     })
 </script>
-
-</body>
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">

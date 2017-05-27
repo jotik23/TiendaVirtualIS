@@ -49,6 +49,7 @@ public class Mapper {
         product.setType(request.getParameter("tipo"));
         product.setPrice(Float.parseFloat(request.getParameter("precio")));
         product.setSize(Integer.parseInt(request.getParameter("talla")));
+        product.setQuantity(Integer.parseInt(request.getParameter("cantidad")));
         product.setColor(request.getParameter("color"));
         product.setTime(request.getParameter("tiempoDisponible"));
         product.setImage(request.getParameter("imagen"));
