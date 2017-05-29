@@ -185,8 +185,8 @@
 <footer>
   <div class="container">
     <div class="row" >
-      <div class="col-lg-20 text-center"> 
-        <h5> Copyright 2017- Ingenieria de software</h5>
+      <div class="col-lg-20 centro text-center"> 
+        <h5 > Copyright 2017- Ingenieria de software</h5>
         <ul id="list-footer"> 
         <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a>
         <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
