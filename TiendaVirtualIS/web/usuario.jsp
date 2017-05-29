@@ -219,13 +219,13 @@
 
                         <div class="form-group">
                             <label>Nombre Completo</label>
-                            <input  name="nombre_completo" class="form-control">
+                            <input  name="nombre" class="form-control">
                             <p class="help-block">Nombres y Apellidos</p>
                         </div>
 
                         <div class="form-group">
                             <label>Numero Cedula</label>
-                            <input name="cedula" class="form-control"  placeholder="123456789">
+                            <input name="cedula" TYPE="text" class="form-control"  placeholder="123456789">
                             <p class="help-block">sin puntos, comas o espacios</p>
                         </div>
 

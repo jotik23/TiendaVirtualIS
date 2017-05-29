@@ -5,6 +5,7 @@ import co.edu.unac.ing.store.dto.User;
 import com.mysql.jdbc.Driver;
 
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 public class Connection {
 
     private static final String TABLE_PRODUCT_NAME = "producto";
+    private static final String TABLE_USER_NAME = "users";
     private static final String DATABASE_USER = "root";
     private static final String DATABASE_PASSWORD = "";
     private static final String DATABASE_NAME = "store";
@@ -51,6 +53,10 @@ public class Connection {
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public String getTableUserName(){
+        return  TABLE_USER_NAME;
     }
 
     public void createDB(String name) {
@@ -94,9 +100,9 @@ public class Connection {
             query.append("\"").append(product.getTime()).append("\",");
             query.append("\"").append(product.getImage()).append("\")");
             connect();
-            try (Statement st = getConnection().createStatement()) {
-                st.executeUpdate(query.toString());
-            }
+            Statement st = getConnection().createStatement();
+            st.executeUpdate(query.toString());
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -104,6 +110,25 @@ public class Connection {
 
     public void insert(User user){
 
+        try {
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO ");
+            query.append(Connection.TABLE_USER_NAME);
+            query.append(" VALUES(");
+            query.append("\"").append(user.getName()).append("\",");
+            query.append("\"").append(user.getId()).append("\",");
+            query.append("\"").append(user.getPhone()).append("\",");
+            query.append("\"").append(user.getEMail()).append("\",");
+            query.append("\"").append(user.getAddress()).append("\",");
+            query.append("\"").append(user.getPassword()).append("\")");
+
+            connect();
+            Statement st = getConnection().createStatement();
+            st.executeUpdate(query.toString());
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void insertUsuario(String table_name,String nombre_completo, String cedula, String telefono, String email, String direccion, String contra) {
@@ -131,13 +156,13 @@ public class Connection {
 
                     while (resultSet.next()) {
                         System.out.println("ID: " + resultSet.getString("ID") + " "
-                                + "Nombre: " + resultSet.getString("Nombre") + " " + resultSet.getString("Apellido") + " "
+                                + "Nombre: " + resultSet.getString("Nombre") + " "
+                                + "Apellido: "+ resultSet.getString("Apellido") + " "
                                 + "Edad: " + resultSet.getString("Edad") + " "
                                 + "Sexo: " + resultSet.getString("Sexo"));
                     }
 
                 } catch (SQLException ex) {
-
         }
     }
 

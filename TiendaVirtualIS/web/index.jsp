@@ -1,12 +1,6 @@
- <%--
-  Created by IntelliJ IDEA.
-  User: lds
-  Date: 16/03/2017
-  Time: 5:03 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
- --><!DOCTYPE html>
+<%@page import="co.edu.unac.ing.store.controllers.LoginController" %>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,11 +11,21 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Andrea's shoes</title>
+  <title>Tienda de zapatos</title>
 
   <!-- Bootstrap Core CSS -->
-  <link href="static/frontend/css/bootstrap.css" rel="stylesheet">
+  <link href="static/frontend/css/bootstrap.min.css" rel="stylesheet">
 
+  <link href="static/backend/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="static/backend/css/sb-admin.css" rel="stylesheet">
+
+  <!-- Morris Charts CSS -->
+  <link href="static/backend/css/plugins/morris.css" rel="stylesheet">
+
+  <!-- Custom Fonts -->
+  <link href="static/backend/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom CSS -->
   <link href="static/frontend/css/business-casual.css" rel="stylesheet">
 
@@ -36,14 +40,47 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-
 </head>
 
 <body>
+<header>
 
-<div class="brand">Andrea's shoes</div>
-<div class="address-bar">CRA 84# 33AA-1 La castellana | Medellin,Antioquia 90210 | 123.456.7890</div>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <!-- Top Menu Items -->
+    <%
+      String user = (String) request.getAttribute("userName");
+      String profile = "";
+      String logIO = "Log In";
+      String refLog = "/login";
+      String clase ="" ;
+      if (user != (null)){
+        profile = "profile"; logIO = "Log Out";
+        refLog = "/index.jsp"; clase = "fa fa-fw fa-user";
+      }else{user = "Ingresar";}
+    %>
+    <ul class="nav navbar-right top-nav">
+      <li class="dropdown">
+        <i href="#"   class="dropdown-toggle" data-toggle="dropdown" >
+          <i class="fa fa-user"   >
+            <%=user%>
+        </i> <b class="caret"></b>
+        </i>
+        <ul class="dropdown-menu">
+          <li>
+            <a href="#"><i class="<%=clase%>"></i><%=profile%></a>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <a href="<%=refLog%>"><i class="fa fa-fw fa-power-off"></i> <%=logIO%> </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
+</header>
+<div class="brand">Tienda de Zapatos</div>
+<div class="address-bar">3481 Melrose Place | Beverly Hills, CA 90210 | 123.456.7890</div>
 
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -61,19 +98,27 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
       <ul class="nav navbar-nav">
         <li>
-          <a href="static/frontend/index.html" target="_blank">Inicio</a>
+          <a href="static/frontend/index.html">Inicio</a>
         </li>
         <li>
-          <a href="/usuarios" target="_blank">Registro</a>
+          <a href="static/frontend/about.html">Acerca de</a>
         </li>
         <li>
-          <a href="/inicio" target="_blank">Catalogo Hombres</a>
+          <a href="/Nosotros">Nosotros</a>
         </li>
         <li>
-          <a href="/usuarios" target="_blank">Catalogo Mujeres</a>
+          <a href="static/frontend/contact.html">Contact</a>
+        </li>
+        <li>
+          <a href="/usuarios">Registro</a>
+        </li>
+        <li>
+          <a href="/inicio">Catalogo Hombres</a>
+        </li>
+        <li>
+          <a href="/usuarios">Catalogo Mujeres</a>
         </li>
       </ul>
     </div>
@@ -83,14 +128,6 @@
 </nav>
 
 <div class="container">
-
-<div class="row">
-                <div class="box">
-                  
-                   <img id="relax-banner" src="static/frontend/img/relax_banner.jpg">
-                 
-                </div>
-              </div>
 
   <div class="row">
     <div class="box">
@@ -125,12 +162,14 @@
           </a>
         </div>
         <h2 class="brand-before">
-          <small>Bienvenido a</small>
+          <small>Welcome to</small>
         </h2>
-        <h1 class="brand-name">Andrea's shoes</h1>
+        <h1 class="brand-name">Antonio</h1>
         <hr class="tagline-divider">
         <h2>
-            <strong>Todo conforme a tu preferencia</strong>
+          <small>By
+            <strong>Start Bootstrap</strong>
+          </small>
         </h2>
       </div>
     </div>
@@ -140,27 +179,15 @@
     <div class="box">
       <div class="col-lg-12">
         <hr>
-        <h2 class="intro-text text-center">Nuestros
-          <strong>productos</strong>
+        <h2 class="intro-text text-center">Build a website
+          <strong>worth visiting</strong>
         </h2>
         <hr>
         <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
         <hr class="visible-xs">
-        </a>
-        <a href="static/frontend/img/intro-pic.jpg">
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
-        </a>
-        <a href="static/frontend/img/intro-pic.jpg">
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
-        </a>
-        <a href="static/frontend/img/intro-pic.jpg">
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
-        </a>
-         <a href="static/frontend/img/intro-pic.jpg">
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
-        </a>
-
-       
+        <p>The boxes used in this template are nested inbetween a normal Bootstrap row and the start of your column layout. The boxes will be full-width boxes, so if you want to make them smaller then you will need to customize.</p>
+        <p>A huge thanks to <a href="http://join.deathtothestockphoto.com/" target="_blank">Death to the Stock Photo</a> for allowing us to use the beautiful photos that make this template really come to life. When using this template, make sure your photos are decent. Also make sure that the file size on your photos is kept to a minumum to keep load times to a minimum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
       </div>
     </div>
   </div>
@@ -169,12 +196,12 @@
     <div class="box">
       <div class="col-lg-12">
         <hr>
-        <h2 class="intro-text text-center">Que es Andrea's shoes </strong>
+        <h2 class="intro-text text-center">Beautiful boxes
+          <strong>to showcase your content</strong>
         </h2>
         <hr>
-        <p>Somos una tienda de zapatos online con las últimas tendencias de la temporada.
-          En Andrea's shoes encontrarás gran variedad de zapatos de las mejores marcas. Nuestro stock es limitado y
-          los precios están sujetos a cambios sin previo aviso.  <a href="/Nosotros"> ver más</a></p>
+        <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
       </div>
     </div>
   </div>
@@ -188,14 +215,13 @@
       <div class="col-lg-20 centro text-center"> 
         <h5 > Copyright 2017- Ingenieria de software</h5>
         <ul id="list-footer"> 
-        <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a>
+          <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a></li>
         <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
         <li> <a href="infoEmpresa.html" target="_blank" title="contacto">Contáctenos</a> </li>
         </ul>
       </div>
     </div>
   </div>
-
 </footer>
 
 <!-- jQuery -->
@@ -210,8 +236,6 @@
         interval: 5000 //changes the speed
     })
 </script>
-
-</body>
 
 <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
   <div class="modal-dialog">
@@ -229,4 +253,22 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="login-modal-log" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="loginmodal-container">
+      <h1>Inicie Sesión</h1><br>
+      <form role="form"  action="/login" method="post" >
+        <input type="text" name="user" placeholder="Usuario">
+        <input type="password" name="pass" placeholder="Contraseña">
+        <input type="submit" class="login loginmodal-submit" value="Iniciar Sesión">
+      </form>
+
+      <div class="login-help">
+        <a href="/usuarios">Registrar</a> - <a href="">¿Olvidó su contraseña?</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
 </html>
