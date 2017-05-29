@@ -145,7 +145,8 @@
                    <p>Para nosotros es muy importante que tengas una nueva experiencia de compra, y disfrutes la comodidad de tener tus productos preferidos al alcance de un clic. </br>
                     Centro de Atención al Cliente al 018000 942 434 y en Bogotá 423 2940 o envíanos un e-mail a info@AndreaShoes.com.co. Te invitamos a que ingreses a nuestro Chat en el horario: lunes a viernes de 08:00 a.m. a 5:00 p.m. y sábados de 8:00 a.m. a 5:00 p.m. jornada continua.</br>
                     Además, no dejes de visitar nuestras redes sociales, allí encontrarás toda la información necesaria sobre productos, descuentos y noticias de las últimas tendencias de la moda en el mundo; adicionalmente podrás compartir con nosotros tus opiniones, y sugerencias.
-                    <ul class="nav navbar-nav">
+                   </p>
+                      <ul class="nav navbar-nav">
                      <li>
                       <a href="https://www.facebook.com/" target="_blank">Facebook</a>
                     </li>
@@ -176,6 +177,7 @@
                 <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a>
                 <li> <a href="/Nosotros" title="Informacion">Acerca de nosotros</a> </li>
                 <li> <a href="#contacto" title="contacto">Contáctenos</a> </li>
+                </ul>
               </div>
             </div>
           </div>
