@@ -103,15 +103,6 @@
           <a href="static/frontend/index.html">Inicio</a>
         </li>
         <li>
-          <a href="static/frontend/about.html">Acerca de</a>
-        </li>
-        <li>
-          <a href="/Nosotros">Nosotros</a>
-        </li>
-        <li>
-          <a href="static/frontend/contact.html">Contact</a>
-        </li>
-        <li>
           <a href="/usuarios">Registro</a>
         </li>
         <li>
@@ -174,6 +165,7 @@
       </div>
     </div>
   </div>
+</div>
 
   <div class="row">
     <div class="box">
@@ -217,7 +209,7 @@
         <ul id="list-footer"> 
           <li> <a href="#" title="inicie Sesión" data-toggle="modal" data-target="#login-modal">Administrador</a></li>
         <li> <a href="/Nosotros"  target="_blank" title="Informacion">Acerca de nosotros</a> </li>
-        <li> <a href="infoEmpresa.html" target="_blank" title="contacto">Contáctenos</a> </li>
+        <li> <a href="/Nosotros" target="_blank" title="contacto">Contáctenos</a> </li>
         </ul>
       </div>
     </div>
