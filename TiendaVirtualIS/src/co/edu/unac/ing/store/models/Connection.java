@@ -17,7 +17,7 @@ import java.util.logging.Level;
 public class Connection {
 
     private static final String TABLE_PRODUCT_NAME = "producto";
-    private static final String TABLE_USER_NAME = "users";
+    private static final String TABLE_USER_NAME = "usuario";
     private static final String DATABASE_USER = "root";
     private static final String DATABASE_PASSWORD = "";
     private static final String DATABASE_NAME = "store";
@@ -111,15 +111,18 @@ public class Connection {
     public void insert(User user){
 
         try {
+
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO ");
             query.append(Connection.TABLE_USER_NAME);
             query.append(" VALUES(");
             query.append("\"").append(user.getName()).append("\",");
+            query.append("\"").append(user.getLastName()).append("\",");
             query.append("\"").append(user.getId()).append("\",");
-            query.append("\"").append(user.getPhone()).append("\",");
             query.append("\"").append(user.getEMail()).append("\",");
             query.append("\"").append(user.getAddress()).append("\",");
+            query.append("\"").append(user.getType()).append("\",");
+            query.append("\"").append(user.getPhone()).append("\",");
             query.append("\"").append(user.getPassword()).append("\")");
 
             connect();

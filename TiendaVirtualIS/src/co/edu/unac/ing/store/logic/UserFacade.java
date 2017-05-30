@@ -3,7 +3,6 @@ package co.edu.unac.ing.store.logic;
 import co.edu.unac.ing.store.dto.User;
 import co.edu.unac.ing.store.models.UserConsult;
 
-import javax.xml.transform.sax.SAXSource;
 import java.util.ArrayList;
 
 /**
@@ -48,18 +47,14 @@ public class UserFacade {
 
     public boolean validate(User user){
 
-        boolean validation = false;
-
         if ((!user.getAddress().equals(null) && !user.getEMail().equals(null)  && !user.getId().equals(null)
                 && !user.getName().equals(null) && !user.getPassword().equals(null) && !user.getPhone().equals(null) )){
-            if ((!user.getAddress().equals("") && !user.getEMail().equals("") &&  !user.getId().equals("")
-                    && !user.getName().equals("") && !user.getPassword().equals("") && !user.getPhone().equals("") )){
+                if(user.getAddress().length() > 5 && user.getEMail().length() > 5 &&  user.getId().length() > 5
+                        && user.getName().length() > 5 && user.getPassword().length() > 5 && user.getPhone().length() > 5 ){
 
-                validation = true;
+                return true;
 
-            }else{validation = false;}
-        }else{validation = false;}
-
-        return validation;
+            }else{return false;}
+        }else{return false;}
     }
 }

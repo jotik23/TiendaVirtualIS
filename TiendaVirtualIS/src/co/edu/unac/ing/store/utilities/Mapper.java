@@ -26,6 +26,7 @@ public class Mapper {
         User user = new User();
         try{
             user.setName(request.getParameter("nombre"));
+            user.setLastName(request.getParameter("apellido"));
             user.setId(request.getParameter("cedula"));
             user.setPhone(request.getParameter("telefono"));
             user.setAddress((request.getParameter("ciudad") +" "+ request.getParameter("direccion")));
