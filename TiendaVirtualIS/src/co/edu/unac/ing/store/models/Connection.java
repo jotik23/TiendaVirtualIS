@@ -1,6 +1,7 @@
 package co.edu.unac.ing.store.models;
 
 import co.edu.unac.ing.store.dto.Product;
+import co.edu.unac.ing.store.dto.ProductDTO;
 import co.edu.unac.ing.store.dto.User;
 import com.mysql.jdbc.Driver;
 
@@ -43,6 +44,34 @@ public class Connection {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void insert(ProductDTO product){
+
+        try {
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO ");
+            query.append(Connection.TABLE_PRODUCT_NAME);
+            query.append(" VALUES(");
+            query.append("\"").append(product.getCode()).append("\",");
+            query.append("\"").append(product.getName()).append("\",");
+            query.append("\"").append(product.getCategory()).append("\",");
+            query.append(product.getPrice()).append(",");
+            query.append(product.getSize()).append(",");
+            query.append(product.getQuantity()).append(",");
+            query.append("\"").append(product.getColor()).append("\",");
+            query.append("\"").append(product.getTime()).append("\",");
+            query.append("\"").append(product.getImage()).append(")");
+
+            connect();
+            Statement st = getConnection().createStatement();
+            st.executeUpdate(query.toString());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            closeConnection();
         }
     }
 

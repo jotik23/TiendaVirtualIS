@@ -28,9 +28,8 @@ public class UserFacade {
         return validation;
     }
 
-    public String validateLoginName(User user){
+    public User validateLoginName(User user){
         ArrayList<User> users = UserConsult.consultUser();
-        String nameUser ="";
 
         if (!user.getEMail().equals(null) && !user.getEMail().equals("") &&
                 !user.getPassword().equals(null) && !user.getPassword().equals("")){
@@ -38,11 +37,13 @@ public class UserFacade {
             for (int i=0; i<users.size();i++){
                 if (user.getPassword().equals(users.get(i).getPassword()) && user.getEMail().equals(users.get(i).getEMail())){
 
-                    nameUser = users.get(i).getName();
+                    user.setName(users.get(i).getName());
+                    user.setType(users.get(i).getType());
                 }
             }
         }
-        return nameUser;
+
+        return user;
     }
 
     public boolean validate(User user){

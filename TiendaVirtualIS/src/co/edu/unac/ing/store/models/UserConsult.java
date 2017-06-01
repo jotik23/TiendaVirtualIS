@@ -29,7 +29,7 @@ public class UserConsult extends Connection{
                 User user = new User();
                 user.setName(resultSet.getString("nombre"));
                 user.setLastName(resultSet.getString("apellido"));
-                user.setEMail(resultSet.getString("correo"));
+                user.setEMail(resultSet.getString("mail"));
                 user.setPassword(resultSet.getString("password"));
                 users.add(user);
                 System.out.println(user.getName()+" "+user.getEMail());

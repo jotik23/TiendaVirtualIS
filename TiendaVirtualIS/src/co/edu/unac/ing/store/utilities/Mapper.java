@@ -1,6 +1,7 @@
 package co.edu.unac.ing.store.utilities;
 
 import co.edu.unac.ing.store.dto.Product;
+import co.edu.unac.ing.store.dto.ProductDTO;
 import co.edu.unac.ing.store.dto.User;
 
 /**
@@ -51,6 +52,23 @@ public class Mapper {
         product.setPrice(Float.parseFloat(request.getParameter("precio")));
         product.setSize(Integer.parseInt(request.getParameter("talla")));
         product.setQuantity(Integer.parseInt(request.getParameter("cantidad")));
+        product.setColor(request.getParameter("color"));
+        product.setTime(request.getParameter("tiempoDisponible"));
+        product.setImage(request.getParameter("imagen"));
+
+        return product;
+    }
+
+    public static ProductDTO mappingRequestToProductDTO(javax.servlet.http.HttpServletRequest request){
+
+        ProductDTO product = new ProductDTO();
+
+        product.setCode(request.getParameter("codigo"));
+        product.setName(request.getParameter("nombre"));
+        product.setCategory(request.getParameter("categoria"));
+        product.setType(request.getParameter("tipo"));
+        product.setPrice(Double.parseDouble(request.getParameter("precio")));
+        product.setSize(Integer.parseInt(request.getParameter("talla")));
         product.setColor(request.getParameter("color"));
         product.setTime(request.getParameter("tiempoDisponible"));
         product.setImage(request.getParameter("imagen"));
