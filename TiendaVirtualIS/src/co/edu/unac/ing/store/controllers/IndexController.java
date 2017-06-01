@@ -19,7 +19,7 @@ public class IndexController extends javax.servlet.http.HttpServlet {
 
 
 
-        RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/Catalogohombres.jsp");
+        RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/index.jsp");
         RequetsDispatcherObj.forward(request, response);
     }
 }
