@@ -3,7 +3,6 @@ package co.edu.unac.ing.store.logic;
 import co.edu.unac.ing.store.dto.User;
 import co.edu.unac.ing.store.models.UserConsult;
 
-import javax.xml.transform.sax.SAXSource;
 import java.util.ArrayList;
 
 /**
@@ -29,9 +28,8 @@ public class UserFacade {
         return validation;
     }
 
-    public String validateLoginName(User user){
+    public User validateLoginName(User user){
         ArrayList<User> users = UserConsult.consultUser();
-        String nameUser ="";
 
         if (!user.getEMail().equals(null) && !user.getEMail().equals("") &&
                 !user.getPassword().equals(null) && !user.getPassword().equals("")){
@@ -39,27 +37,25 @@ public class UserFacade {
             for (int i=0; i<users.size();i++){
                 if (user.getPassword().equals(users.get(i).getPassword()) && user.getEMail().equals(users.get(i).getEMail())){
 
-                    nameUser = users.get(i).getName();
+                    user.setName(users.get(i).getName());
+                    user.setType(users.get(i).getType());
                 }
             }
         }
-        return nameUser;
+
+        return user;
     }
 
     public boolean validate(User user){
 
-        boolean validation = false;
-
         if ((!user.getAddress().equals(null) && !user.getEMail().equals(null)  && !user.getId().equals(null)
                 && !user.getName().equals(null) && !user.getPassword().equals(null) && !user.getPhone().equals(null) )){
-            if ((!user.getAddress().equals("") && !user.getEMail().equals("") &&  !user.getId().equals("")
-                    && !user.getName().equals("") && !user.getPassword().equals("") && !user.getPhone().equals("") )){
+                if(user.getAddress().length() > 5 && user.getEMail().length() > 5 &&  user.getId().length() > 5
+                        && user.getName().length() > 5 && user.getPassword().length() > 5 && user.getPhone().length() > 5 ){
 
-                validation = true;
+                return true;
 
-            }else{validation = false;}
-        }else{validation = false;}
-
-        return validation;
+            }else{return false;}
+        }else{return false;}
     }
 }

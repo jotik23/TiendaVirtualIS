@@ -9,9 +9,11 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="mysql-connector-java-5.0.8-bin" />
           <element id="library" level="project" name="mysql-connector-java-5.0.8-bin1" />
+          <element id="library" level="project" name="gson-2.2.2" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="TiendaVirtualIS/web/Web" />
+      <element id="library" level="project" name="gson-2.2.2" />
     </root>
   </artifact>
 </component>

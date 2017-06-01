@@ -220,7 +220,13 @@
                         <div class="form-group">
                             <label>Nombre Completo</label>
                             <input  name="nombre" class="form-control">
-                            <p class="help-block">Nombres y Apellidos</p>
+                            <p class="help-block">Nombre</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Apellidos</label>
+                            <input  name="apellido" class="form-control">
+                            <p class="help-block">Apellidos</p>
                         </div>
 
                         <div class="form-group">

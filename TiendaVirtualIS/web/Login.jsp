@@ -77,15 +77,12 @@
         interval: 5000 //changes the speed
     })
 </script>
-
-</body>
-            <h1>Inicie Sesión</h1><br>
+            <h1>Iniciar Sesión</h1><br>
             <form role="form"  action="/login" method="post" >
                 <input type="text" name="user" placeholder="Usuario">
                 <input type="password" name="pass" placeholder="Contrasjjjeña">
                 <input type="submit" class="login loginmodal-submit" value="Iniciar Sesión">
             </form>
-
             <div class="login-help">
                 <a href="/usuarios">Registrar</a> - <a href="">¿Olvidó su contraseña?</a>
             </div>

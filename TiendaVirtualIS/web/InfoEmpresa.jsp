@@ -38,6 +38,40 @@
 </head>
 
 <body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Top Menu Items -->
+        <%
+            String user = (String) request.getAttribute("userName");
+            String profile = "";
+            String logIO = "Log In";
+            String refLog = "/login";
+            String clase ="" ;
+            if (user != (null)){
+                profile = "profile"; logIO = "Log Out";
+                refLog = "/index.jsp"; clase = "fa fa-fw fa-user";
+            }else{user = "Ingresar";}
+        %>
+        <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                <i href="#"   class="dropdown-toggle" data-toggle="dropdown" >
+                    <i class="fa fa-user"   >
+                        <%=user%>
+                    </i> <b class="caret"></b>
+                </i>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#"><i class="<%=clase%>"></i><%=profile%></a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="<%=refLog%>"><i class="fa fa-fw fa-power-off"></i> <%=logIO%> </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
 
     <div class="brand">Andrea's shoes</div>
     <div class="address-bar">CRA 84# 33AA-1 La castellana | Medellin,Antioquia 90210 | 123.456.7890</div>

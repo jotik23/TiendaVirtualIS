@@ -1,6 +1,7 @@
 package co.edu.unac.ing.store.models;
 
 import co.edu.unac.ing.store.dto.Product;
+import co.edu.unac.ing.store.dto.ProductDTO;
 import co.edu.unac.ing.store.dto.User;
 import com.mysql.jdbc.Driver;
 
@@ -17,7 +18,7 @@ import java.util.logging.Level;
 public class Connection {
 
     private static final String TABLE_PRODUCT_NAME = "producto";
-    private static final String TABLE_USER_NAME = "users";
+    private static final String TABLE_USER_NAME = "usuario";
     private static final String DATABASE_USER = "root";
     private static final String DATABASE_PASSWORD = "";
     private static final String DATABASE_NAME = "store";
@@ -43,6 +44,34 @@ public class Connection {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void insert(ProductDTO product){
+
+        try {
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO ");
+            query.append(Connection.TABLE_PRODUCT_NAME);
+            query.append(" VALUES(");
+            query.append("\"").append(product.getCode()).append("\",");
+            query.append("\"").append(product.getName()).append("\",");
+            query.append("\"").append(product.getCategory()).append("\",");
+            query.append(product.getPrice()).append(",");
+            query.append(product.getSize()).append(",");
+            query.append(product.getQuantity()).append(",");
+            query.append("\"").append(product.getColor()).append("\",");
+            query.append("\"").append(product.getTime()).append("\",");
+            query.append("\"").append(product.getImage()).append(")");
+
+            connect();
+            Statement st = getConnection().createStatement();
+            st.executeUpdate(query.toString());
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            closeConnection();
         }
     }
 
@@ -111,15 +140,18 @@ public class Connection {
     public void insert(User user){
 
         try {
+
             StringBuilder query = new StringBuilder();
             query.append("INSERT INTO ");
             query.append(Connection.TABLE_USER_NAME);
             query.append(" VALUES(");
             query.append("\"").append(user.getName()).append("\",");
+            query.append("\"").append(user.getLastName()).append("\",");
             query.append("\"").append(user.getId()).append("\",");
-            query.append("\"").append(user.getPhone()).append("\",");
             query.append("\"").append(user.getEMail()).append("\",");
             query.append("\"").append(user.getAddress()).append("\",");
+            query.append("\"").append(user.getType()).append("\",");
+            query.append("\"").append(user.getPhone()).append("\",");
             query.append("\"").append(user.getPassword()).append("\")");
 
             connect();
