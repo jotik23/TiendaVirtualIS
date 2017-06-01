@@ -21,6 +21,9 @@
   <!-- Custom CSS -->
   <link href="static/backend/css/sb-admin.css" rel="stylesheet">
 
+  <!-- Carrusel CSS -->
+  <link rel="stylesheet" type="text/css" href="static/frontend/css/style.css">
+
   <!-- Morris Charts CSS -->
   <link href="static/backend/css/plugins/morris.css" rel="stylesheet">
 
@@ -32,6 +35,8 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,6 +115,9 @@
         <li>
           <a href="/usuarios">Catalogo Mujeres</a>
         </li>
+        <li>
+          <a href="/carrito">Carrito</a>
+        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
@@ -180,10 +188,15 @@
         <h2 class="intro-text text-center">
           <strong>Nuestros productos</strong>
         </h2>
+      </div>
+      <div class="col-lg-4">
         <hr>
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/1111.jpg" alt="">
 
-        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">
+        <img class="img-responsive img-border img-left" src="static/frontend/img/intro-pic.jpg" alt="">-->
+
+
+
         </div>
     </div>
   </div>
