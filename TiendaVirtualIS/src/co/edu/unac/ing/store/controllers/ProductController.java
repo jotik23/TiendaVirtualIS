@@ -4,18 +4,32 @@ import co.edu.unac.ing.store.dto.Product;
 import co.edu.unac.ing.store.logic.ProductFacade;
 import co.edu.unac.ing.store.models.Connection;
 import co.edu.unac.ing.store.utilities.Mapper;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.RequestDispatcher;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by antonio on 20/04/2017.
  */
 @javax.servlet.annotation.WebServlet(name = "ProductController", urlPatterns="/RegistroProductos")
     public class ProductController extends javax.servlet.http.HttpServlet {
+
+
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-        Product product = Mapper.mappingRequestToProduct(request);
+        Product product = null;
+        try {
+            product = Mapper.mappingRequestToProduct(request);
+        } catch (FileUploadException e) {
+            e.printStackTrace();
+        }
 
         //LOGICA
         ProductFacade productFacade = new ProductFacade();
@@ -27,6 +41,7 @@ import java.io.IOException;
         }else{
             //other
         }
+
 
 
         RequestDispatcher RequetsDispatcherObj =request.getRequestDispatcher("/RegistrodeProductos.jsp");

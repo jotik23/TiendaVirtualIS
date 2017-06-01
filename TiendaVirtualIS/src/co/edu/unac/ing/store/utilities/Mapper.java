@@ -2,6 +2,17 @@ package co.edu.unac.ing.store.utilities;
 
 import co.edu.unac.ing.store.dto.Product;
 import co.edu.unac.ing.store.dto.User;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.io.FilenameUtils;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by antonio on 4/05/2017.
@@ -39,20 +50,40 @@ public class Mapper {
         return user;
     }
 
-    public static Product mappingRequestToProduct(javax.servlet.http.HttpServletRequest request){
+    public static Product mappingRequestToProduct(javax.servlet.http.HttpServletRequest request) throws FileUploadException, IOException {
 
         Product product = new Product();
+        Map<String, String> parameters = new HashMap<>();
 
-        product.setCode(request.getParameter("codigo"));
-        product.setName(request.getParameter("nombre"));
-        product.setCategory(request.getParameter("categoria"));
-        product.setType(request.getParameter("tipo"));
-        product.setPrice(Float.parseFloat(request.getParameter("precio")));
-        product.setSize(Integer.parseInt(request.getParameter("talla")));
-        product.setQuantity(Integer.parseInt(request.getParameter("cantidad")));
-        product.setColor(request.getParameter("color"));
-        product.setTime(request.getParameter("tiempoDisponible"));
-        product.setImage(request.getParameter("imagen"));
+        List<FileItem> items = new ServletFileUpload(new DiskFileItemFactory()).parseRequest(request);
+        for (FileItem item : items) {
+            if (item.isFormField()) {
+                String fieldname = item.getFieldName();
+                String fieldvalue = item.getString();
+                parameters.put(fieldname, fieldvalue);
+            } else {
+                String fieldname = item.getFieldName();
+                String filename = FilenameUtils.getName(item.getName());
+                InputStream filecontent = item.getInputStream();
+                // ... (do your job here)
+
+                parameters.put(fieldname,filename);
+
+            }
+        }
+
+        product.setCode(parameters.get("codigo"));
+        product.setName(parameters.get("nombre"));
+        product.setCategory(parameters.get("categoria"));
+        product.setType(parameters.get("tipo"));
+        product.setPrice(Double.parseDouble(parameters.get("precio")));
+        product.setSize(Integer.parseInt(parameters.get("talla")));
+        product.setQuantity(Integer.parseInt(parameters.get("cantidad")));
+        product.setColor(parameters.get("color"));
+        product.setTime(parameters.get("tiempoDisponible"));
+        product.setImage(parameters.get("imagen"));
+
+
 
         return product;
     }

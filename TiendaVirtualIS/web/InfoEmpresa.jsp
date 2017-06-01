@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                      <a href="static/frontend/index.html" target="_blank">Inicio</a>
+                      <a href="/inicio" target="_blank">Inicio</a>
                     </li>
                     <li>
                       <a href="/usuarios" target="_blank">Registro</a>
