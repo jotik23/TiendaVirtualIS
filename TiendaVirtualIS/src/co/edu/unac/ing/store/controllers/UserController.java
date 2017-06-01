@@ -22,10 +22,11 @@ public class UserController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = Mapper.mappingRequestToUser(request);
+
         UserFacade valido = new UserFacade();
 
         if (valido.validate(user)){
-
+            user.setType("1");
             Connection connectionBD = new Connection();
             connectionBD.insert(user);
             response.sendRedirect("/index.jsp");

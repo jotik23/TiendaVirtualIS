@@ -28,8 +28,15 @@ public class LoginController extends HttpServlet {
         UserFacade us = new UserFacade();
 
         if (us.validateLogin(user)){
-            request.setAttribute("userName",us.validateLoginName(user));
-            request.getRequestDispatcher("/index.jsp").forward(request,response);
+            User user1 = us.validateLoginName(user);
+            if (user1.getType().equals("1")) {
+                request.setAttribute("userName",us.validateLoginName(user));
+                request.getRequestDispatcher("/index.jsp").forward(request,response);
+            }else if (user1.getType().equals("0")){
+                request.setAttribute("userName",us.validateLoginName(user));
+                request.getRequestDispatcher("/Home").forward(request,response);
+            }
+
 
         }
         else{

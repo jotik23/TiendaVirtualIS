@@ -110,10 +110,7 @@
           <a href="/usuarios">Registro</a>
         </li>
         <li>
-          <a href="/inicio">Catalogo Hombres</a>
-        </li>
-        <li>
-          <a href="/usuarios">Catalogo Mujeres</a>
+          <a href="/CatalogoAll">Catalogo</a>
         </li>
         <li>
           <a href="/carrito">Carrito</a>
