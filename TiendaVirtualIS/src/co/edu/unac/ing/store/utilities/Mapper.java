@@ -1,5 +1,6 @@
 package co.edu.unac.ing.store.utilities;
 
+import co.edu.unac.ing.store.dto.Cart;
 import co.edu.unac.ing.store.dto.Product;
 import co.edu.unac.ing.store.dto.ProductDTO;
 import co.edu.unac.ing.store.dto.User;
@@ -90,6 +91,25 @@ public class Mapper {
         return product;
     }
 
+
+    public static Cart mappingRequestToCarrito(javax.servlet.http.HttpServletRequest request){
+
+        Cart carrito = new Cart();
+
+        carrito.setCode(request.getParameter("codigo"));
+        carrito.setName(request.getParameter("nombre"));
+        //carrito.setCategory(request.getParameter("categoria"));
+        carrito.setType(request.getParameter("tipo"));
+        carrito.setPrice(Float.parseFloat(request.getParameter("precio")));
+        carrito.setSize(Integer.parseInt(request.getParameter("talla")));
+        carrito.setQuantity(Integer.parseInt(request.getParameter("cantidad")));
+        carrito.setColor(request.getParameter("color"));
+        //carrito.setTime(request.getParameter("tiempoDisponible"));
+        carrito.setImage(request.getParameter("imagen"));
+
+        return carrito;
+    }
+
     public static ProductDTO mappingRequestToProductDTO(javax.servlet.http.HttpServletRequest request){
 
         ProductDTO product = new ProductDTO();
@@ -105,6 +125,7 @@ public class Mapper {
         product.setImage(request.getParameter("imagen"));
 
         return product;
+
     }
 
 }

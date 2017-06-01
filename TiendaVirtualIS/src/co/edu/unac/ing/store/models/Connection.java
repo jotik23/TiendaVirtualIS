@@ -1,5 +1,6 @@
 package co.edu.unac.ing.store.models;
 
+import co.edu.unac.ing.store.dto.Cart;
 import co.edu.unac.ing.store.dto.Product;
 import co.edu.unac.ing.store.dto.ProductDTO;
 import co.edu.unac.ing.store.dto.User;
@@ -154,6 +155,32 @@ public class Connection {
             query.append("\"").append(user.getPhone()).append("\",");
             query.append("\"").append(user.getPassword()).append("\")");
 
+            connect();
+            Statement st = getConnection().createStatement();
+            st.executeUpdate(query.toString());
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insert(Cart carrito){
+        try {
+
+            StringBuilder query = new StringBuilder();
+            query.append("INSERT INTO ");
+            query.append(Connection.TABLE_PRODUCT_NAME);
+            query.append(" VALUES(");
+            query.append("\"").append(carrito.getCode()).append("\",");
+            query.append("\"").append(carrito.getName()).append("\",");
+            query.append("\"").append(carrito.getCategory()).append("\",");
+            query.append("\"").append(carrito.getType()).append("\",");
+            query.append(carrito.getPrice()).append(",");
+            query.append(carrito.getSize()).append(",");
+            query.append(carrito.getQuantity()).append(",");
+            query.append("\"").append(carrito.getColor()).append("\",");
+            query.append("\"").append(carrito.getTime()).append("\",");
+            query.append("\"").append(carrito.getImage()).append("\")");
             connect();
             Statement st = getConnection().createStatement();
             st.executeUpdate(query.toString());
